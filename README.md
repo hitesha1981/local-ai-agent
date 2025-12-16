@@ -30,7 +30,6 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 #then on macos
 brew services start ollama
-brew services stop ollama
 ==> Successfully started `ollama` (label: homebrew.mxcl.ollama)
 
 ```
@@ -176,4 +175,11 @@ Day High: **280.05**
 Day Low: **272.84**
 
 Please note that these values are not actual stock prices and are used for demonstration purposes only.
+```
+
+---
+## 11. Stop locally running Ollama agent
+
+```bash
+brew services stop ollama
 ```
