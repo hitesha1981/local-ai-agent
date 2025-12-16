@@ -84,12 +84,13 @@ source .venv/bin/activate
 
 Install dependencies (locked):
 ```bash
+uv init
 uv add agno fastapi uvicorn duckduckgo-search yfinance pandas
 ```
 
 ---
 
-## 5. Run the Agent (FastAPI)
+## 5. Run the AI Agent (FastAPI)
 
 ```bash
 uv run uvicorn app:app --reload
@@ -104,7 +105,6 @@ http://127.0.0.1:8000/docs
 
 ## 6. Example Queries
 
-- What is QUIC protocol and why is it faster?
 - Get stock price of AAPL
 - Search latest news on Nvidia and summarize
 
@@ -115,7 +115,7 @@ http://127.0.0.1:8000/docs
 ```
 local-ai-agent-uv/
 ├── pyproject.toml
-├── uv.lock
+├── uv.lock -- This will be autocreated
 ├── app.py
 ├── agent.py
 ├── tools/
@@ -177,8 +177,19 @@ Day Low: **272.84**
 Please note that these values are not actual stock prices and are used for demonstration purposes only.
 ```
 
+```bash
+curl -N -X POST http://127.0.0.1:8000/stream_query \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"What is AAPL stock price?"}'
+Output of `get_stock_price` tool call:
+
+
+{"name": "get_stock_price", "parameters": {"symbol":"AAPL"}, "result": {"price": 274.11, "day_high": 280.05, "day_low": 272.84}}
+
+```
+
 ---
-## 11. Stop locally running Ollama agent
+## 11. Stop locally running Ollama agent after testing
 
 ```bash
 brew services stop ollama
