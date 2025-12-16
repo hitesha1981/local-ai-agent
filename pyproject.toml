@@ -1,0 +1,16 @@
+[project]
+name = "local-ai-agent"
+version = "0.1.0"
+description = "Local AI Agent using Agno + Ollama + FastAPI"
+requires-python = ">=3.11,<3.14"
+
+dependencies = [
+    "agno>=2.3.13",
+    "ddgs>=9.9.3",
+    "duckduckgo-search>=8.1.1",
+    "fastapi>=0.124.4",
+    "ollama>=0.6.1",
+    "pandas>=2.3.3",
+    "uvicorn>=0.38.0",
+    "yfinance>=0.2.66",
+]
